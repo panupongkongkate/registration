@@ -1,0 +1,88 @@
+﻿@model registration.Models.Images
+
+@{
+    Layout = null; 
+}
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ConfirmPassword)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Dateofbirth)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Dateofbirth)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Phonenumber)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class="col-sm-4">
+            เพศ
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Gender.GenderName)
+        </dd>
+        <dt class="col-sm-4">
+            อาชีพ
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Position.PositionName)
+        </dd>
+        <dt class="col-sm-4">
+            รูปภาพ
+        </dt>
+        <dd class="col-sm-8">
+            <img src="@("~/Images/" + Model.ImageName)" asp-append-version="true" width="250" height="250" />
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<registration.Models.Images>
+
+@{
+    ViewData["Title"] = "Index";
+    var i = 0;
+}
+
+<h1>ระบบสมาชิก</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+
+    <a onclick="showInPopup('@Url.Action("Create","Images")','Image')"
+       class="btn btn-success text-white">Add</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No.
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+
+                @{
+                    i++;
+                }
+
+                @i.
+            </td>
+
+            <td>
+
+                <img src="@("~/Images/" + item.ImageName)" asp-append-version="true" width="250" height="250" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender.GenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.PositionName)
+            </td>
+
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+
+                <a onclick="showInPopup('@Url.Action("Edit","Images",new {id = item.ID})','Image')" class="btn btn-info text-white">Edit </a>
+                
+                <a onclick="showInPopup('@Url.Action("Details","Images",new {id = item.ID})','Image')" class="btn btn-info text-white">Details </a>
+                
+                <a onclick="showInPopup('@Url.Action("Delete","Images",new {id = item.ID})','Image')" class="btn btn-info text-white">Delete </a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
